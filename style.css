@@ -111,7 +111,7 @@ body {
 /* GATOS */
 .gato {
   position: absolute;
-  width: 100px;
+  width: 150px;
   animation: flutuar 3s infinite alternate ease-in-out;
   cursor: pointer;
 }
