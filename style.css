@@ -1,0 +1,234 @@
+body {
+  margin: 0;
+  background: white;
+  overflow: hidden;
+  font-family: 'Quicksand', sans-serif;
+}
+
+/* CAIXA */
+#caixa {
+  width: 255px; /* seu tamanho grande */
+  display: block;
+  transform-origin: center;
+  animation: rodar 1.5s infinite linear;
+}
+
+
+/* BOTÃO */#botao {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  background: red;
+  border: 4px solid black;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0); /* começa pequeno */
+}
+@keyframes crescerBotao {
+  0% {
+    transform: translate(-50%, -50%) scale(0);
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+/* CAPINHA */
+#capinha {
+  display: none;
+  width: 110px;
+  height: 110px;
+  border: 2px solid red;
+  background: rgba(255,255,255,0.4);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  cursor: pointer;
+}
+/* animação de abrir capinha */
+@keyframes abrirCapinha {
+  0% { transform: translate(-50%, -50%) scaleY(1); opacity: 1; }
+  50% { transform: translate(-50%, -60%) scaleY(0.5); opacity: 0.7; }
+  100% { transform: translate(-50%, -80%) scaleY(0); opacity: 0; }
+}
+#mensagem {
+  position: absolute;
+  width: 100%;
+  top: 15%;
+  text-align: center;
+  font-size: 26px;
+  color: black;
+  z-index: 10; /* FICA POR CIMA DE TUDO */
+}
+
+
+#alerta {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: white;
+  color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Quicksand', sans-serif;
+  font-size: 60px;
+  text-align: center;
+  z-index: 9999;
+  display: none; /* escondido até ativar */
+}
+
+/* BURACO */#portal-container {
+  display: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/*PORTAL*/
+#portal {
+  width: 8cm; /* tamanho maior que o buraco */
+  height: 8cm;
+  transform: scale(0); /* começa invisível */
+  transform-origin: center;
+  animation: aparecerPortal 1s forwards; /* animação de crescimento */
+}
+
+@keyframes aparecerPortal {
+  from { transform: scale(0); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+
+/* GATOS */
+.gato {
+  position: absolute;
+  width: 100px;
+  animation: flutuar 3s infinite alternate ease-in-out;
+  cursor: pointer;
+}
+
+@keyframes flutuar {
+  from { transform: translateY(0); }
+  to { transform: translateY(-15px); }
+}
+.confete {
+  position: fixed;
+  width: 10px;
+  height: 14px;
+  top: -20px;
+  opacity: 0.9;
+  animation: cairConfete linear forwards;
+}
+
+@keyframes cairConfete {
+  to {
+    transform: translateY(110vh) rotate(720deg);
+    opacity: 0;
+  }
+}
+@keyframes pular {
+  0%, 100% { transform: translate(-50%, -50%) translateY(0); }
+  50% { transform: translate(-50%, -50%) translateY(-20px); }
+}/* Container centralizado */
+#caixa-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  cursor: pointer;
+  animation: pular 1s infinite, brilhar 2s infinite;
+}
+
+/* Caixa dentro do container */
+#caixa {
+  width: 255px; /* tamanho grande */
+  display: block;
+  transform-origin: center;
+  animation: rodar 2s infinite linear;
+}
+
+/* Animação de pular (container) */
+@keyframes pular {
+  0%, 100% { transform: translate(-50%, -50%) translateY(0); }
+  50% { transform: translate(-50%, -50%) translateY(-20px); }
+}
+
+/* Rotação leve da caixa */
+@keyframes rodar {
+  0%, 100% { transform: rotate(0deg); }
+  50% { transform: rotate(10deg); }
+
+  @keyframes desaparecerCaixa {
+  0% {
+    transform: translate(-50%, -50%) scale(1) rotate(0deg);
+    opacity: 1;
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.2) rotate(10deg);
+    opacity: 0.7;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(0) rotate(-15deg);
+    opacity: 0;
+  }
+}
+
+#img-final-1,
+#img-final-2,
+#img-final-3 {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-width: 90%;
+  opacity: 0;
+  z-index: 99999;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+}
+
+#img-final-1.ativo,
+#img-final-2.ativo,
+#img-final-3.ativo {
+  opacity: 1;
+}
+
+/* Tela preta */
+#tela-preta {
+  position: fixed;
+  inset: 0;
+  background: black;
+  z-index: 100000;
+  display: none;
+}
+
+/* Pontinhos */
+#pontinhos {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 80px;
+  display: none;
+}
+
+/* Vídeo */
+#video-final {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 100001;
+  display: none;
+}
