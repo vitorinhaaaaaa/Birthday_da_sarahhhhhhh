@@ -150,7 +150,7 @@ body {
 
 /* Caixa dentro do container */
 #caixa {
-  width: 255px; /* tamanho grande */
+  width: 455px; /* tamanho grande */
   display: block;
   transform-origin: center;
   animation: rodar 2s infinite linear;
