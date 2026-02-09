@@ -398,7 +398,7 @@ audioAniversario.volume = 0.8;
   gatoFinal.style.transform = "translate(-50%, -50%)";
 
   // define um tamanho adequado
-  gatoFinal.style.width = "300px"; // ou o tamanho que você quiser
+  gatoFinal.style.width = "150px"; // ou o tamanho que você quiser
   gatoFinal.style.height = "auto";
 
   document.body.appendChild(gatoFinal);
@@ -444,7 +444,7 @@ function iniciarSequenciaFinal() {
   // IMAGEM 1 — 3s sobre os gatos
   const img1 = document.createElement("img");
   img1.src = "imagem1.png";
-  centralizarElemento(img1, 500); // largura máxima 500px
+  centralizarElemento(img1, 600); // largura máxima 500px
   document.body.appendChild(img1);
 
   setTimeout(() => {
@@ -453,7 +453,7 @@ function iniciarSequenciaFinal() {
     // IMAGEM 2 — 4s sobre os gatos
     const img2 = document.createElement("img");
     img2.src = "imagem2.png";
-    centralizarElemento(img2, 500);
+    centralizarElemento(img2, 600);
     document.body.appendChild(img2);
 
     setTimeout(() => {
